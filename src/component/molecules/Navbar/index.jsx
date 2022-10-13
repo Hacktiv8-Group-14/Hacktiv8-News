@@ -35,8 +35,8 @@ export default function Navbar () {
                 <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
                     <Link to="/" className="mr-4">Indonesia</Link>
                     <Link to="/programming" className="mr-4">Programming</Link>
-                    <Link to="/" className="mr-4">Covid-19</Link>
-                    <Link to="/">Saved</Link>
+                    <Link to="/covid" className="mr-4">Covid-19</Link>
+                    <Link to="/saved">Saved</Link>
                 </div>
             </div>
         </nav>

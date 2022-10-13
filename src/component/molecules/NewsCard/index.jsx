@@ -1,6 +1,15 @@
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
+import Button from '../../atoms/Button'
 
-function NewsCard({source, title, author, description, url}) {
+function NewsCard({source, title, author, description, url, API}) {
+
+    const navigate = useNavigate()
+
+    const NavDetail = () => {
+        navigate(`/${title}`)
+    }
+
     return(
         <div className="border-2 p-2 rounded-lg break-words">
             <header className="border-b-2">
@@ -11,6 +20,10 @@ function NewsCard({source, title, author, description, url}) {
             <div className="mt-2 mb-4">
                 <p>{description}</p>
             </div>
+            <Button children="News Page"
+            className="text-white bg-slate-600 p-2"
+            onClick={NavDetail}
+            />
         </div>
     )
 }
