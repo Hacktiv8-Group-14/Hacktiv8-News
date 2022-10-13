@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types'
-import { useNavigate } from 'react-router-dom'
 import Button from '../../atoms/Button'
 
-function NewsCard({source, title, author, description, url, API}) {
+function NewsCard({source, title, author, description, url}) {
 
-    const navigate = useNavigate()
-
-    const NavDetail = () => {
-        navigate(`/${title}`)
+    const newsPage = (url) => {
+        const newtab = window.open(url)
+        return newtab
     }
 
     return(
@@ -22,7 +20,7 @@ function NewsCard({source, title, author, description, url, API}) {
             </div>
             <Button children="News Page"
             className="text-white bg-slate-600 p-2"
-            onClick={NavDetail}
+            onClick={() => newsPage(url)}
             />
         </div>
     )
