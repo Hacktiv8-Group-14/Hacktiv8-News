@@ -4,6 +4,7 @@ import Error from './pages/Error';
 import Homepage from './pages/Homepages';
 import ProgrammingPage from './pages/ProgrammingPage';
 import SavedPage from './pages/SavedPage';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='/programming' element={<ProgrammingPage/>}/>
           <Route path='/saved' element={<SavedPage/>}/>
           <Route path='/covid' element={<CovidPage/>}/>
+          <Route path='/:value' element={<Search/>}/>
           <Route path='*' element={<Error/>}/>
       </Routes>
     </BrowserRouter>

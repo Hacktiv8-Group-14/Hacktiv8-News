@@ -11,7 +11,7 @@ import NewsCard from "../component/molecules/NewsCard";
 export default function Homepage () {
 
     const dispatch = useDispatch()
-    const newsindonesia = useSelector((state) => state.news.newsList)
+    const indonesiaNews = useSelector((state) => state.news.newsList)
 
     useEffect(() => {
         dispatch(fetchNews(`https://newsapi.org/v2/top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`))
@@ -24,7 +24,7 @@ export default function Homepage () {
         <PageContainer>
             <Header>Indonesia News</Header>
             <NewsCardContainer>
-                {newsindonesia.map((item)=> 
+                {indonesiaNews.map((item)=> 
                 <NewsCard key={item.url}
                 source={item.source.name}
                 title={item.title}

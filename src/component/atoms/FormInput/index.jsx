@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 function FormInput (props) {
-    const {type, id, placeholder, className, ...rest} = props
+    const {type, id, placeholder, className, onChange, ...rest} = props
 
 
 return (
@@ -11,6 +11,7 @@ return (
         id={id}
         className={className}
         placeholder={placeholder}
+        onChange={onChange}
         {...rest}
         />
     </div>
