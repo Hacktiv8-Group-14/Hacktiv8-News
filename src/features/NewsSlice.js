@@ -34,7 +34,7 @@ const newsSlice = createSlice({
             state.errorMessage = action.error.message
         })
         .addCase(fetchNews.fulfilled, (state, action) => {
-            state.data = [...action.payload.articles]
+            state.newsList = [...action.payload.articles]
             state.isSuccess = true
             state.isPending = false
             state.errorMessage = ''
