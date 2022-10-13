@@ -17,10 +17,8 @@ const ProgrammingPage = () => {
     d.setMonth(d.getMonth() - 1)
     const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset()*60000);
 
-    console.log("date ==>", localDateTo)
-
     useEffect(() => {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=programming&from=${localDateFrom.toISOString()}&to=${localDateTo.toISOString()}&pageSize=20&sortBy=publishedAt&searchIn=description,title&apiKey=${process.env.REACT_APP_API_KEY}`))
+        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=programming&from=${localDateFrom}&to=${localDateTo}&pageSize=20&sortBy=publishedAt&searchIn=description,title&apiKey=${process.env.REACT_APP_API_KEY}`))
     }, []);
 
     return(
