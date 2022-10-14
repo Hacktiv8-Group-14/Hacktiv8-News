@@ -18,7 +18,7 @@ export default function CovidPage () {
     const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset()*60000);
 
     useEffect(() => {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=coronavirus&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`))
+        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=covid&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`))
     }, []);
 
     return (
@@ -35,7 +35,7 @@ export default function CovidPage () {
                 description={item.description}
                 url={item.url}
                 publishedAt={item.publishedAt}
-                API={item}
+                urlToImage={item.urlToImage}
                 />
                 )}
             </NewsCardContainer>

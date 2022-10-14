@@ -35,7 +35,7 @@ export default function Search () {
                 description={item.description}
                 url={item.url}
                 publishedAt={item.publishedAt}
-                API={item}
+                urlToImage={item.urlToImage}
                 />
                 )}
             </NewsCardContainer>

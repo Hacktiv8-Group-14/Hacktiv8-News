@@ -34,6 +34,7 @@ const ProgrammingPage = () => {
                             author={item.author} 
                             description={item.description} 
                             url={item.url}
+                            urlToImage={item.urlToImage}
                         />
                     ))}
                 </NewsCardContainer>

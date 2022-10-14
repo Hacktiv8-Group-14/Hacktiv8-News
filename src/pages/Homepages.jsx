@@ -32,7 +32,7 @@ export default function Homepage () {
                 description={item.description}
                 url={item.url}
                 publishedAt={item.publishedAt}
-                API={item}
+                urlToImage={item.urlToImage}
                 />
                 )}
             </NewsCardContainer>

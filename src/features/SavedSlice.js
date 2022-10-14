@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    savedNews: localStorage.getItem("savedNews") ? localStorage.getItem("savedNews") : []
+    savedNews: []
 }
 
 const savedSlice = createSlice({
@@ -13,7 +13,7 @@ const savedSlice = createSlice({
             localStorage.setItem("savedNews", [...state.savedNews, action.payload])
         },
         deleteSavedNews: (state, action) => {
-            const filteredData = state.savedNews.filter((d) => d.url !== action.payload)
+            const filteredData = state.savedNews.filter((d) => d.title !== action.payload.title)
             state.savedNews = [...filteredData]
             localStorage.setItem("savedNews", [...filteredData])
         }

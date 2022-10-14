@@ -20,11 +20,12 @@ export default function SavedPage () {
                 <NewsCardContainer>
                     {savedNews.map((item) => (
                         <NewsCard key={item.url} 
-                            source={item.source.name}
+                            source={item.source}
                             title={item.title}
                             author={item.author} 
                             description={item.description} 
                             url={item.url}
+                            urlToImage={item.urlToImage}
                         />
                     ))}
                 </NewsCardContainer>
