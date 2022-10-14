@@ -1,7 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
 
+let dataStorage = localStorage.getItem("savedNews")
+
 const initialState = {
-    savedNews: []
+    savedNews: JSON.parse(dataStorage) || []
 }
 
 const savedSlice = createSlice({
@@ -10,12 +12,12 @@ const savedSlice = createSlice({
     reducers: {
         addSavedNews: (state, action) => {
             state.savedNews = [...state.savedNews, action.payload]
-            localStorage.setItem("savedNews", [...state.savedNews, action.payload])
+            localStorage.setItem("savedNews", JSON.stringify([...state.savedNews]))
         },
         deleteSavedNews: (state, action) => {
             const filteredData = state.savedNews.filter((d) => d.title !== action.payload.title)
             state.savedNews = [...filteredData]
-            localStorage.setItem("savedNews", [...filteredData])
+            localStorage.setItem("savedNews", JSON.stringify(filteredData))
         }
     }
 })

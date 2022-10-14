@@ -28,24 +28,24 @@ function NewsCard(props) {
             setSave(!save)
             Swal.fire({
                 icon: 'success',
-                title: 'News has been saved',
+                title: 'News has been Saved',
                 timer: 1500
               })
         } else if (save === true) {
             Swal.fire({
-                title: 'Unsaved news?',
+                title: 'Unsave News?',
                 text: "You won't be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, remove it!'
+                confirmButtonText: 'Yes'
               }).then((result) => {
                 if (result.isConfirmed) {
                     dispatch(deleteSavedNews(props))
                     setSave(!save)
                   Swal.fire({
-                    title: 'news successfully not saved!',
+                    title: 'News has been Unsaved!',
                     icon : 'success'
                   })
                 }
