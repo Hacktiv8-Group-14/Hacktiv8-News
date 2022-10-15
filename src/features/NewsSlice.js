@@ -20,7 +20,11 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async (API) => {
 const newsSlice = createSlice({
     name: 'news',
     initialState,
-    reducers: {},
+    reducers: {
+        resetErrorMessage: (state) => {
+            state.errorMessage = ''
+        }
+    },
     extraReducers(builder) {
         builder
         .addCase(fetchNews.pending, (state) => {
@@ -32,6 +36,7 @@ const newsSlice = createSlice({
             state.isPending = false
             state.isSuccess = false
             state.errorMessage = action.error.message
+            state.newsList = []
         })
         .addCase(fetchNews.fulfilled, (state, action) => {
             state.newsList = [...action.payload.articles]
@@ -42,4 +47,5 @@ const newsSlice = createSlice({
     }
 })
 
+export const { resetErrorMessage } = newsSlice.actions
 export default newsSlice.reducer
