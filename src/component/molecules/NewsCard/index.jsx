@@ -66,7 +66,7 @@ function NewsCard(props) {
             </div>
             <div className='flex justify-between'>
             <Button children="Read more.."
-            className="text-sky-600"
+            className="text-sky-600 hover:underline"
             onClick={() => newsPage(url)}
             />
             <Button onClick={clickSave}>
