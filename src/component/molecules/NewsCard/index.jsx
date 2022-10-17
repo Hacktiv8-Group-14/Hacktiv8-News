@@ -54,24 +54,24 @@ function NewsCard(props) {
     }
 
     return(
-        <div className="border-2 p-2 rounded-lg break-words">
-            <header className="border-b-2 truncate">
-                <h5 className="text-lg">{source}</h5>
+        <div className="border-2 p-2 rounded-lg break-words flex flex-col">
+            <header className="border-b-2">
+                <h5 className="text-lg truncate">{source}</h5>
                 <img src={urlToImage? urlToImage : notImg} alt="img" className='h-40 w-full'/>
-                <a href={url} target="_blank" rel="noopener noreferrer" className="text-xl font-semibold hover:underline">{title}</a>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="line-clamp-2 text-xl font-semibold hover:underline">{title}</a>
                 <h3 className="mb-2 truncate">{!author || author === "" ? "-" : author}</h3>
             </header>
             <div className="mt-2 mb-4">
-                <p className='truncate'>{description}</p>
+                <p className='line-clamp-2'>{description}</p>
             </div>
-            <div className='flex justify-between'>
-            <Button children="Read more.."
-            className="text-sky-600 hover:underline"
-            onClick={() => newsPage(url)}
-            />
-            <Button onClick={clickSave}>
-                {save? <FaBookmark size={20} color="green"/> :  <FaRegBookmark size={20}/> }
-            </Button>
+            <div className='flex justify-between items-end h-full'>
+                <Button children="Read more.."
+                className="text-sky-600 hover:underline"
+                onClick={() => newsPage(url)}
+                />
+                <Button onClick={clickSave}>
+                    {save? <FaBookmark size={20} color="green"/> :  <FaRegBookmark size={20}/> }
+                </Button>
             </div>
         </div>
     )
