@@ -5,8 +5,9 @@ import NewsCard from "../component/molecules/NewsCard"
 import NewsCardContainer from "../component/container/NewsCardContainer"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { fetchNews } from "../features/NewsSlice"
+import Pagination from "../component/molecules/Pagination"
 
 export default function Search () {
 
@@ -14,12 +15,15 @@ export default function Search () {
     const dispatch = useDispatch()
     const date = new Date()
     const newsSearch = useSelector((state) => state.news.newsList)
+    const totalResult = useSelector((state) => state.news.totalResult)
+    const [size, setSize] = useState(25)
+    const [current, setCurrent] = useState(1)
 
     console.log(date)
 
     useEffect(()=> {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=${value}&from=${date}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`))
-    }, [value])
+        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=${value}&from=${date}&sortBy=publishedAt&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`))
+    }, [current])
 
     return (
         <>
@@ -39,7 +43,16 @@ export default function Search () {
                 />
                 )}
             </NewsCardContainer>
+            <Pagination
+            setSize = {setSize}
+            size = {size} 
+            current = {current}
+            setCurrent = {setCurrent}
+            news = {newsSearch}
+            totalResult = {totalResult}
+            />
         </PageContainer>
+        
         </>
     )
 }

@@ -3,14 +3,18 @@ import PageContainer from "../component/container/PageContainer";
 import Navbar from "../component/molecules/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../features/NewsSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NewsCardContainer from "../component/container/NewsCardContainer";
 import NewsCard from "../component/molecules/NewsCard";
+import Pagination from "../component/molecules/Pagination";
 
 export default function CovidPage () {
 
     const dispatch = useDispatch()
     const covidNews = useSelector((state) => state.news.newsList)
+    const totalResult = useSelector((state) => state.news.totalResult)
+    const [size, setSize] = useState(25)
+    const [current, setCurrent] = useState(1)
     
     const d = new Date();
     const localDateTo = new Date(d.getTime() - d.getTimezoneOffset()*60000);
@@ -18,8 +22,9 @@ export default function CovidPage () {
     const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset()*60000);
 
     useEffect(() => {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=covid&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`))
-    }, []);
+        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=covid&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`))
+    }, [current]);
+
 
     return (
         <>
@@ -39,6 +44,14 @@ export default function CovidPage () {
                 />
                 )}
             </NewsCardContainer>
+            <Pagination
+                setSize = {setSize}
+                size = {size} 
+                current = {current}
+                setCurrent = {setCurrent}
+                news = {covidNews}
+                totalResult = {totalResult}
+                />    
         </PageContainer>
         </>
     )

@@ -6,6 +6,7 @@ const initialState = {
     isSuccess: false,
     errorMessage: '',
     newsList: [],
+    totalResult: null
 }
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async (API) => {
@@ -39,6 +40,7 @@ const newsSlice = createSlice({
             state.newsList = []
         })
         .addCase(fetchNews.fulfilled, (state, action) => {
+            state.totalResult = action.payload.totalResults
             state.newsList = [...action.payload.articles]
             state.isSuccess = true
             state.isPending = false

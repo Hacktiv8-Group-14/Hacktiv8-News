@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-let dataStorage = localStorage.getItem("savedNews")
+let dataStorage = localStorage.getItem('savedNews')
 
 const initialState = {
-    savedNews: JSON.parse(dataStorage) || []
+    savedNews: JSON.parse(dataStorage)
 }
 
 const savedSlice = createSlice({
