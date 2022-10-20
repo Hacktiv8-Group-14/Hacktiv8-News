@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import Button from '../../atoms/Button'
 import {FaRegBookmark, FaBookmark} from 'react-icons/fa'
+import {BsFillBookmarkHeartFill} from 'react-icons/bs'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector  } from 'react-redux'
 import Swal from 'sweetalert2'
@@ -56,8 +57,10 @@ function NewsCard(props) {
     return(
         <div className="border-2 p-2 rounded-lg break-words flex flex-col">
             <header className="border-b-2">
-                <h5 className="text-lg truncate">{source}</h5>
-                <img src={urlToImage? urlToImage : notImg} alt="img" className='h-40 w-full'/>
+                <div className='relative'>
+                    <div className="source rounded-tl-lg rounded-br-lg bg-orange absolute p-1 truncate text-sm text-white">{source}</div>
+                    <img src={urlToImage? urlToImage : notImg} alt="img" className='h-40 w-full rounded-t-lg'/>
+                </div>
                 <a href={url} target="_blank" rel="noopener noreferrer" className="line-clamp-2 text-xl font-semibold hover:underline">{title}</a>
                 <h3 className="mb-2 truncate">{!author || author === "" ? "-" : author}</h3>
             </header>
@@ -70,7 +73,7 @@ function NewsCard(props) {
                 onClick={() => newsPage(url)}
                 />
                 <Button onClick={clickSave}>
-                    {save? <FaBookmark size={20} color="green"/> :  <FaRegBookmark size={20}/> }
+                    {save? <BsFillBookmarkHeartFill size={20} color="#FF3030"/> :  <FaRegBookmark size={20}/> }
                 </Button>
             </div>
         </div>

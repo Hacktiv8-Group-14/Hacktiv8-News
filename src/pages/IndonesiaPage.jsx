@@ -7,6 +7,7 @@ import { fetchNews } from "../features/NewsSlice";
 import NewsCardContainer from "../component/container/NewsCardContainer";
 import NewsCard from "../component/molecules/NewsCard";
 import Pagination from "../component/molecules/Pagination";
+import Footer from "../component/molecules/Footer";
 
 
 export default function Homepage () {
@@ -52,6 +53,7 @@ export default function Homepage () {
                 totalResult = {totalResult}
                 />
         </PageContainer>
+        <Footer/>
         </>
     )
 }

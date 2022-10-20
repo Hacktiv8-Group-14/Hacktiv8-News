@@ -24,7 +24,7 @@ a, a:hover, a:focus {
 .form-control:focus {
     color: #475f7b;
     background-color: #fff;
-    border-color: #5a8dee;
+    border-color: #F67D12;
     outline: 0;
     box-shadow: 0 3px 8px 0 rgb(0 0 0 / 10%);
 }
@@ -49,7 +49,7 @@ a, a:hover, a:focus {
   padding : 15px;
 }
 .thead-primary tr th {
-    background-color: #5a8dee;
+    background-color: #F67D12;
     border-color: #5a8dee;
     color: #fff;
 }
@@ -145,8 +145,8 @@ a, a:hover, a:focus {
 .rc-pagination-next.rc-pagination-item-active a:hover, 
 .rc-pagination-total-text.rc-pagination-item-active a, 
 .rc-pagination-total-text.rc-pagination-item-active a:hover {
-    background-color: #5a8dee;
-    border-color: #5a8dee;
+    background-color: #F67D12;
+    border-color: #F67D12;
     color: #ffffff !important;
 }
 .rc-pagination-item a:hover, 
