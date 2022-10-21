@@ -24,12 +24,7 @@ export default function Search () {
 
     useEffect(()=> {
         dispatch(fetchNews(`https://newsapi.org/v2/everything?q=${value}&from=${date}&sortBy=publishedAt&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`))
-    }, [current])
-
-    // Handling value change if still at search page
-    useEffect(()=> {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=${value}&from=${date}&sortBy=publishedAt&pageSize=${size}&page=1&apiKey=${process.env.REACT_APP_API_KEY}`))
-    }, [value])
+    }, [current, value])
 
     return (
         <>

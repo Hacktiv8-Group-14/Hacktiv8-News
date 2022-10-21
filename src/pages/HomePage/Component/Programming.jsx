@@ -1,16 +1,11 @@
 import Title from "../../../component/molecules/Title";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import NewsCardContainer from "../../../component/container/NewsCardContainer";
-import { fetchNews } from "../../../features/NewsSlice";
 import NewsCard from "../../../component/molecules/NewsCard";
 import axios from 'axios'
 import { useState } from "react";
 
 export default function Programming () {
-
-    // const dispatch = useDispatch()
-    // const indonesia = useSelector((state) => state.news.newsList)
 
     const [programming, setProgramming] = useState([])
 
@@ -30,7 +25,7 @@ export default function Programming () {
 
     useEffect(() => {
         fetchNews()
-    }, []);
+    }, [programming]);
 
     return(
         <>

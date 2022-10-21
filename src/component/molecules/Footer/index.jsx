@@ -30,7 +30,7 @@ export default function Footer () {
                 </div>
                 <div className="lg:ml-6">
                     <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Subcribe Newsletter</h2>
-                    <form className="flex " >
+                    <form className="flex" >
                         <FormInput className=" w-full rounded-l-lg text-black border p-1.5"
                         placeholder="Email Address"
                         />
