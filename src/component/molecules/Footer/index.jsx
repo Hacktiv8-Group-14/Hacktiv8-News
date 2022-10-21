@@ -8,7 +8,7 @@ import { IoIosPaperPlane } from "react-icons/io";
 
 export default function Footer () {
     return ( 
-    <footer className="p-4 bg-white border border-t sm:p-6 dark:bg-gray-900">
+    <footer className="p-4 bg-white border-t sm:p-6 dark:bg-gray-900">
         <div className="flex justify-between">
             <div className="mb-6 md:mb-0 w-36">
                 <Logo/>
@@ -29,7 +29,7 @@ export default function Footer () {
                     </ul>
                 </div>
                 <div className="lg:ml-6">
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Subcribe Newslatter</h2>
+                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Subcribe Newsletter</h2>
                     <form className="flex " >
                         <FormInput className=" w-full rounded-l-lg text-black border p-1.5"
                         placeholder="Email Address"
@@ -40,15 +40,15 @@ export default function Footer () {
                         >
                         <IoIosPaperPlane/>
                         </Button>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-7"/>
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 Hacktiv8 News Final Project 1 - Group 14.
+        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-7"/>
+        <div className="sm:flex sm:items-center sm:justify-between">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 Hacktiv8 News Final Project 1 - Group 14.
             </span>
-            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <Link to="/"><AiFillInstagram size={20} className="text-gray-500 hover:text-orange"/></Link>
                 <Link to="/"><AiFillGithub size={20} className="text-gray-500 hover:text-orange"/></Link>
                 <Link to="/"><AiFillTwitterCircle size={20} className="text-gray-500 hover:text-orange"/></Link>

@@ -24,7 +24,7 @@ const ProgrammingPage = () => {
     const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset()*60000);
 
     useEffect(() => {
-        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=programming&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&pageSize=${size}&page=${current}&searchIn=description,title&apiKey=${process.env.REACT_APP_API_KEY}`))
+        dispatch(fetchNews(`https://newsapi.org/v2/everything?q=programmer&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&pageSize=${size}&page=${current}&searchIn=description,title&apiKey=${process.env.REACT_APP_API_KEY}`))
     }, [current]);
 
     return(

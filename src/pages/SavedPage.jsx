@@ -24,7 +24,7 @@ export default function SavedPage () {
         <PageContainer>
             <Header>Saved</Header>
             {savedNews.length === 0 ? (
-                <span className='mt-8 text-lg font-medium'>No Saved News</span>
+                <span className='mt-8 text-lg font-medium h-80'>No Saved News</span>
             ) : (
                 <NewsCardContainer>
                     {savedNews.map((item) => (
