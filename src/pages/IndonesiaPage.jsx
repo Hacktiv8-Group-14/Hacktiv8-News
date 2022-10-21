@@ -8,9 +8,10 @@ import NewsCardContainer from "../component/container/NewsCardContainer";
 import NewsCard from "../component/molecules/NewsCard";
 import Pagination from "../component/molecules/Pagination";
 import Footer from "../component/molecules/Footer";
+import NavCategory from "../component/molecules/NavCategory"
 
 
-export default function Homepage () {
+export default function IndonesiaPage () {
 
     const dispatch = useDispatch()
     const indonesiaNews = useSelector((state) => state.news.newsList)
@@ -31,6 +32,7 @@ export default function Homepage () {
         <Navbar/>
         <PageContainer>
             <Header>Indonesia News</Header>
+            <NavCategory/>
             <NewsCardContainer>
                 {indonesiaNews.map((item)=> 
                 <NewsCard key={item.url}

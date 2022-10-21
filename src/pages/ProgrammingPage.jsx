@@ -7,6 +7,8 @@ import PageContainer from "../component/container/PageContainer"
 import NewsCardContainer from "../component/container/NewsCardContainer"
 import NewsCard from "../component/molecules/NewsCard"
 import Pagination from "../component/molecules/Pagination"
+import NavCategory from "../component/molecules/NavCategory"
+import Footer from "../component/molecules/Footer"
 
 const ProgrammingPage = () => {
     const dispatch = useDispatch()
@@ -30,6 +32,7 @@ const ProgrammingPage = () => {
             <Navbar/>
             <PageContainer>
                 <Header>Programming News</Header>
+                <NavCategory/>
                 <NewsCardContainer>
                     {newsList.map((item) => (
                         <NewsCard key={item.url} 
@@ -51,6 +54,7 @@ const ProgrammingPage = () => {
                 totalResult = {totalResult}
                 />
             </PageContainer>
+            <Footer/>
         </>
     )
 }

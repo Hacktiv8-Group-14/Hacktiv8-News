@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import NewsCardContainer from "../component/container/NewsCardContainer";
 import NewsCard from "../component/molecules/NewsCard";
 import Pagination from "../component/molecules/Pagination";
+import NavCategory from "../component/molecules/NavCategory"
+import Footer from "../component/molecules/Footer";
 
 export default function CovidPage () {
 
@@ -31,6 +33,7 @@ export default function CovidPage () {
         <Navbar/>
         <PageContainer>
             <Header>Covid News</Header>
+            <NavCategory/>
             <NewsCardContainer>
                 {covidNews.map((item)=> 
                 <NewsCard key={item.url}
@@ -53,6 +56,7 @@ export default function CovidPage () {
                 totalResult = {totalResult}
                 />    
         </PageContainer>
+        <Footer/>
         </>
     )
 }

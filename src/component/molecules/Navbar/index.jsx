@@ -16,7 +16,7 @@ export default function Navbar () {
     }
 
     const searchNews = (e) => {
-        navigate(`/${value}`)
+        navigate(`/q=${value}`)
         setValue('')
         e.preventDefault()
     } 
@@ -26,8 +26,8 @@ export default function Navbar () {
         <nav className="bg-white px-2 dark:text-white sm:px-4  dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
               <Logo className="w-14"/>
-              <form className="flex " onSubmit={searchNews}>
-                        <FormInput className=" w-56 rounded-l-lg text-black border p-1.5"
+                <form className="flex " onSubmit={searchNews}>
+                        <FormInput className=" w-full rounded-l-lg text-black border p-1.5"
                         value={value}
                         onChange={onChange}
                         />
@@ -38,7 +38,7 @@ export default function Navbar () {
                         >
                         <RiSearchLine/>
                         </Button>
-                    </form>
+                </form>
                 <Saved/>
             </div>
         </nav>

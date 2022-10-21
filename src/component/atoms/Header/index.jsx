@@ -1,9 +1,8 @@
-import NavCategory from "../../molecules/NavCategory"
+
 
 function Header({children}) {
     return (
         <>
-        <NavCategory/>
         <h1 className="font-bold text-2xl pb-5 border-b-2 w-full text-center">{children}</h1>
         </>
     )

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchNews } from "../features/NewsSlice"
 import Pagination from "../component/molecules/Pagination"
+import Footer from "../component/molecules/Footer"
 
 export default function Search () {
 
@@ -52,7 +53,7 @@ export default function Search () {
             totalResult = {totalResult}
             />
         </PageContainer>
-        
+        <Footer/>
         </>
     )
 }

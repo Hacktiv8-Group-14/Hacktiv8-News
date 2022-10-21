@@ -6,6 +6,7 @@ import Navbar from "../component/molecules/Navbar";
 import { resetErrorMessage } from '../features/NewsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
+import Footer from "../component/molecules/Footer";
 
 export default function SavedPage () {
 
@@ -38,8 +39,8 @@ export default function SavedPage () {
                     ))}
                 </NewsCardContainer>
             )}
-            
         </PageContainer>
+        <Footer/>
         </>
     )
 }
