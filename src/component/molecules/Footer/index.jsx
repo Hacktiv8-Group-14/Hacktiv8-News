@@ -4,9 +4,26 @@ import Logo from "../../atoms/Logo/Index";
 import FormInput from "../../atoms/FormInput";
 import Button from "../../atoms/Button";
 import { IoIosPaperPlane } from "react-icons/io";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 export default function Footer () {
+
+    const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z]+(?:\.com+)*$/
+    const [email, setEmail] = useState("")
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.value)
+      }
+
+    const subcribeNewsLetter = (e) => {
+        if (!regexEmail.test(email)) {
+            e.preventDefault()
+            Swal.fire('Format email tidak sesuai')
+        }
+    }
+
     return ( 
     <footer className="p-4 bg-white border-t sm:p-6 dark:bg-gray-900">
         <div className="flex justify-between">
@@ -33,10 +50,11 @@ export default function Footer () {
                     <form className="flex" >
                         <FormInput className=" w-full rounded-l-lg text-black border p-1.5"
                         placeholder="Email Address"
+                        onChange={onChangeEmail}
                         />
                         <Button 
-                        type="submit"
                         className= "text-white bg-orange rounded-r-lg px-3 " 
+                        onClick={subcribeNewsLetter}
                         >
                         <IoIosPaperPlane/>
                         </Button>
