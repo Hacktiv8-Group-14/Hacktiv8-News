@@ -23,7 +23,7 @@ export default function Covid () {
 
     return (
         <>
-        <Title title="Covid" link="/covid"/>
+        <Title title="Covid News" link="/covid"/>
         <NewsCardContainer>
             {covid?.map((item) => 
               <NewsCard key={item.url}

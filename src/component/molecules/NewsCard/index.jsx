@@ -58,7 +58,7 @@ function NewsCard(props) {
         <div className="border-2 p-2 rounded-lg break-words flex flex-col">
             <header className="border-b-2">
                 <div className='relative'>
-                    <div className="source rounded-tl-lg rounded-br-lg bg-orange absolute p-1 truncate text-sm text-white">{source}</div>
+                    <div className="rounded-tl-lg rounded-br-lg bg-orange absolute p-1 truncate text-sm text-white">{source}</div>
                     <img src={urlToImage? urlToImage : notImg} alt="img" className='h-40 w-full rounded-t-lg'/>
                 </div>
                 <a href={url} target="_blank" rel="noopener noreferrer" className="line-clamp-2 text-xl font-semibold hover:underline">{title}</a>

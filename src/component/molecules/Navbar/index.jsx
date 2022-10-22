@@ -36,15 +36,15 @@ export default function Navbar () {
             <div className="container flex flex-wrap justify-between items-center mx-auto">
               <Logo className="w-14"/>
                 <form className="flex " onSubmit={searchNews} required>
-                        <FormInput className=" w-full rounded-l-lg text-black border p-1.5"
+                        <FormInput className="rounded-l-lg text-black border p-1.5"
                         value={value}
                         onChange={onChange}
                         />
                         <Button 
                         onClick={searchNews}
                         type="submit"
-                        className= "text-white bg-orange rounded-r-lg px-3 " 
-                        disabled = {isDisabble ? true  : false}
+                        className= {`text-white bg-orange hover:bg-secondary-orange rounded-r-lg px-3 ${isDisabble? "cursor-not-allowed" : ""}`}
+                        disabled = {isDisabble}
                         >
                         <RiSearchLine/>
                         </Button>

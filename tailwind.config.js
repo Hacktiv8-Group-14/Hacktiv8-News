@@ -4,8 +4,12 @@ module.exports = {
       extend: {
         colors : {
           orange : "#F67D12",
-          red : "#FF3030"
+          red : "#FF3030",
+          'secondary' : {
+            orange : "#D37725",
+          },
         },
+        
         fontSize : {
           small : '8px'
         }

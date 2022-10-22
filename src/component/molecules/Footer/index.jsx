@@ -53,7 +53,7 @@ export default function Footer () {
                         onChange={onChangeEmail}
                         />
                         <Button 
-                        className= "text-white bg-orange rounded-r-lg px-3 " 
+                        className= "text-white bg-orange rounded-r-lg px-3 hover:bg-secondary-orange " 
                         onClick={subcribeNewsLetter}
                         >
                         <IoIosPaperPlane/>

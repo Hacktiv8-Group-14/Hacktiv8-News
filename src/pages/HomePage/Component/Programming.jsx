@@ -25,11 +25,11 @@ export default function Programming () {
 
     useEffect(() => {
         fetchNews()
-    }, [programming]);
+    }, []);
 
     return(
         <>
-            <Title title="Programming" link="/programming"/>
+            <Title title="Programming News" link="/programming"/>
             <NewsCardContainer>
                 {programming?.map((item) => 
                     <NewsCard key={item.url}

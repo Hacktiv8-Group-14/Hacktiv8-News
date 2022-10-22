@@ -9,7 +9,7 @@ return (
         <input
         type={type}
         id={id}
-        className={className}
+        className={`w-full ${className}`}
         placeholder={placeholder}
         onChange={onChange}
         {...rest}

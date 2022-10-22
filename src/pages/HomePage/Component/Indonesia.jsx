@@ -24,7 +24,7 @@ export default function Indonesia () {
 
     return(
         <>
-            <Title title="Indonesia" link="/indonesia"/>
+            <Title title="Indonesia News" link="/indonesia"/>
             <NewsCardContainer>
                 {indonesia?.map((item) => 
                     <NewsCard key={item.url}
