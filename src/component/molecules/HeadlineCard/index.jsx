@@ -15,7 +15,7 @@ export default function HeadlineCard ({image, title, description, url, index, se
         } else if (index < 0) {
             setIndex(9)
         }
-    })
+    }, [index])
 
     const onClickleft = () => {
         setIndex(index - 1)

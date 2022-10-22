@@ -22,7 +22,7 @@ export default function Navbar () {
         } else {
             setIsDisabble(false)
         }
-    })
+    }, [value])
 
     const searchNews = (e) => {
             e.preventDefault()

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import Button from '../../atoms/Button'
-import {FaRegBookmark, FaBookmark} from 'react-icons/fa'
+import {FaRegBookmark} from 'react-icons/fa'
 import {BsFillBookmarkHeartFill} from 'react-icons/bs'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector  } from 'react-redux'
