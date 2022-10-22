@@ -6,7 +6,7 @@ import HeadlineCard from "../../../component/molecules/HeadlineCard";
 export default function Headline () {
 
     const [headline, setHeadline] = useState([])
-    const [page, setPage ] = useState(1)
+    const [index, setIndex] = useState(0)
 
     const d = new Date();
     const localDateTo = new Date(d.getTime() - d.getTimezoneOffset()*60000);
@@ -15,7 +15,7 @@ export default function Headline () {
 
     const fetchNews = async () => {
         try {
-            const response = await axios.get(`https://newsapi.org/v2/everything?q=viral&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=1&page=${page}&apiKey=${process.env.REACT_APP_API_KEY}`)
+            const response = await axios.get(`https://newsapi.org/v2/everything?q=viral&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`)
             setHeadline(response.data.articles)
         } catch (e) {
             throw(e)
@@ -24,21 +24,17 @@ export default function Headline () {
 
     useEffect(() => {
         fetchNews()
-    }, [page]);
-
-    console.log(headline)
+    }, []);
     
     return (
         <>
-        {headline?.map((e) =>
         <HeadlineCard 
-        image={e.urlToImage}
-        title={e.title}
-        description={e.description}
-        url={e.url} 
-        setPage ={setPage}
-        page = {page}/>
-        )}
+        image={headline[index]?.urlToImage}
+        title={headline[index]?.title}
+        description={headline[index]?.description}
+        url={headline[index]?.url} 
+        setIndex ={setIndex}
+        index = {index}/>
         </>
     )
 }
