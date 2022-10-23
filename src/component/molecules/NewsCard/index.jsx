@@ -22,7 +22,8 @@ function NewsCard(props) {
     useEffect(() => {
         savedNews.some((e) => e.title === title) && setSave(true)
     }, [save]);
- 
+    
+    
     const clickSave = () => {
         if (save === false) {
             dispatch(addSavedNews(props))
@@ -61,13 +62,13 @@ function NewsCard(props) {
                     <div className="rounded-tl-lg rounded-br-lg bg-orange absolute p-1 truncate text-sm text-white">{source}</div>
                     <img src={urlToImage? urlToImage : notImg} alt="img" className='h-40 w-full rounded-t-lg'/>
                 </div>
-                <a href={url} target="_blank" rel="noopener noreferrer" className="line-clamp-2 text-xl font-semibold hover:underline">{title}</a>
-                <h3 className="mb-2 truncate">{!author || author === "" ? "-" : author}</h3>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="line-clamp-2 sm:text-base text-xl font-semibold hover:underline">{title}</a>
+                <h3 className="mb-2 truncate sm:text-sm">{!author || author === "" ? "-" : author}</h3>
             </header>
             <div className="mt-2 mb-4">
-                <p className='line-clamp-2'>{description}</p>
+                <p className='line-clamp-2 sm:text-xs'>{description}</p>
             </div>
-            <div className='flex justify-between items-end h-full'>
+            <div className='flex justify-between items-end h-full sm:text-sm'>
                 <Button children="Read more.."
                 className="text-sky-600 hover:underline"
                 onClick={() => newsPage(url)}

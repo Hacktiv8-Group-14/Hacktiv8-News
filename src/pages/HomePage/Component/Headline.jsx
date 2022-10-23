@@ -15,7 +15,7 @@ export default function Headline () {
 
     const fetchNews = async () => {
         try {
-            const response = await axios.get(`https://newsapi.org/v2/everything?q=viral&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`)
+            const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=politics&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`)
             setHeadline(response.data.articles)
         } catch (e) {
             throw(e)
