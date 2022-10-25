@@ -1,40 +1,44 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import axios from "axios";
-
 import HeadlineCard from "../../../component/molecules/HeadlineCard";
+import { fetchNews } from "../../../features/NewsSlice";
 
-export default function Headline () {
+const d = new Date();
+const localDateTo = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+d.setMonth(d.getMonth() - 1);
+const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
 
-    const [headline, setHeadline] = useState([])
-    const [index, setIndex] = useState(0)
+export default function Headline() {
+  const [headline, setHeadline] = useState([]);
+  const [index, setIndex] = useState(0);
 
-    const d = new Date();
-    const localDateTo = new Date(d.getTime() - d.getTimezoneOffset()*60000);
-    d.setMonth(d.getMonth() - 1)
-    const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset()*60000);
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/top-headlines?country=us&category=politics&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`
+      )
+      .then((Response) => {
+        setHeadline(Response.data.articles);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
-    const fetchNews = async () => {
-        try {
-            const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=politics&from=${localDateFrom}&to=${localDateTo}&sortBy=popularity&pageSize=10&apiKey=${process.env.REACT_APP_API_KEY}`)
-            setHeadline(response.data.articles)
-        } catch (e) {
-            throw(e)
-        }
-    }
-
-    useEffect(() => {
-        fetchNews()
-    }, []);
-    
-    return (
-        <>
-        <HeadlineCard 
-        image={headline[index]?.urlToImage}
-        title={headline[index]?.title}
-        description={headline[index]?.description}
-        url={headline[index]?.url} 
-        setIndex ={setIndex}
-        index = {index}/>
-        </>
-    )
+  return (
+    <>
+      {!!headline.length ? (
+        <HeadlineCard
+          image={headline[index]?.urlToImage}
+          title={headline[index]?.title}
+          description={headline[index]?.description}
+          url={headline[index]?.url}
+          setIndex={setIndex}
+          index={index}
+        />
+      ) : (
+        <></>
+      )}
+    </>
+  );
 }

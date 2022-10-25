@@ -1,5 +1,5 @@
 import Navbar from "../component/molecules/Navbar";
-import PageContainer from "../component/container/PageContainer"
+import PageContainer from "../component/container/PageContainer";
 import Header from "../component/atoms/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -8,54 +8,55 @@ import NewsCardContainer from "../component/container/NewsCardContainer";
 import NewsCard from "../component/molecules/NewsCard";
 import Pagination from "../component/molecules/Pagination";
 import Footer from "../component/molecules/Footer";
-import NavCategory from "../component/molecules/NavCategory"
+import NavCategory from "../component/molecules/NavCategory";
 
+export default function IndonesiaPage() {
+  const dispatch = useDispatch();
+  const indonesiaNews = useSelector((state) => state.news.newsList);
+  const totalResult = useSelector((state) => state.news.totalResult);
+  const [size, setSize] = useState(24);
+  const [current, setCurrent] = useState(1);
 
-export default function IndonesiaPage () {
+  useEffect(() => {
+    dispatch(
+      fetchNews(
+        `${process.env.REACT_APP_API_URL}/top-headlines?country=id&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`
+      )
+    );
+  }, [current]);
 
-    const dispatch = useDispatch()
-    const indonesiaNews = useSelector((state) => state.news.newsList)
-    const totalResult = useSelector((state) => state.news.totalResult)
-    const [size, setSize] = useState(25)
-    const [current, setCurrent] = useState(1)
+  console.log(" length =>", indonesiaNews.length);
 
-
-    useEffect(() => {
-        dispatch(fetchNews(`https://newsapi.org/v2/top-headlines?country=id&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`))
-    }, [current] )
-    
-    
-    console.log(" length =>" ,indonesiaNews.length)
-  
-    return (
-        <>
-        <Navbar/>
-        <PageContainer>
-            <Header>Indonesia News</Header>
-            <NavCategory/>
-            <NewsCardContainer>
-                {indonesiaNews.map((item)=> 
-                <NewsCard key={item.url}
-                source={item.source.name}
-                title={item.title}
-                author={item.author}
-                description={item.description}
-                url={item.url}
-                publishedAt={item.publishedAt}
-                urlToImage={item.urlToImage}
-                />
-                )}
-            </NewsCardContainer>
-            <Pagination
-                setSize = {setSize}
-                size = {size} 
-                current = {current}
-                setCurrent = {setCurrent}
-                news = {indonesiaNews}
-                totalResult = {totalResult}
-                />
-        </PageContainer>
-        <Footer/>
-        </>
-    )
+  return (
+    <>
+      <Navbar />
+      <PageContainer>
+        <Header>Indonesia News</Header>
+        <NavCategory />
+        <NewsCardContainer>
+          {indonesiaNews.map((item) => (
+            <NewsCard
+              key={item.url}
+              source={item.source.name}
+              title={item.title}
+              author={item.author}
+              description={item.description}
+              url={item.url}
+              publishedAt={item.publishedAt}
+              urlToImage={item.urlToImage}
+            />
+          ))}
+        </NewsCardContainer>
+        <Pagination
+          setSize={setSize}
+          size={size}
+          current={current}
+          setCurrent={setCurrent}
+          news={indonesiaNews}
+          totalResult={totalResult}
+        />
+      </PageContainer>
+      <Footer />
+    </>
+  );
 }
