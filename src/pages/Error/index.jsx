@@ -1,8 +1,6 @@
-import Button from "../component/atoms/Button";
+import Button from "../../component/atoms/Button";
 import { useNavigate } from "react-router-dom";
-import PageContainer from "../component/container/PageContainer";
-import Footer from "../component/molecules/Footer";
-import Navbar from "../component/molecules/Navbar";
+import PageContainer from "../../component/container/PageContainer";
 import PropTypes from "prop-types";
 
 export default function Error({ title }) {
@@ -14,7 +12,6 @@ export default function Error({ title }) {
 
   return (
     <>
-      <Navbar />
       <PageContainer>
         <div className="text-center py-10">
           <h1 className="font-black text-3xl py-5">{title}</h1>
@@ -30,7 +27,6 @@ export default function Error({ title }) {
           </Button>
         </div>
       </PageContainer>
-      <Footer />
     </>
   );
 }

@@ -1,18 +1,21 @@
-import Navbar from "../component/molecules/Navbar";
-import PageContainer from "../component/container/PageContainer";
-import Header from "../component/atoms/Header";
+import Header from "../../component/atoms/Header";
+import PageContainer from "../../component/container/PageContainer";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchNews } from "../../features/NewsSlice";
 import { useEffect, useState } from "react";
-import { fetchNews } from "../features/NewsSlice";
-import NewsCardContainer from "../component/container/NewsCardContainer";
-import NewsCard from "../component/molecules/NewsCard";
-import Pagination from "../component/molecules/Pagination";
-import Footer from "../component/molecules/Footer";
-import NavCategory from "../component/molecules/NavCategory";
+import NewsCardContainer from "../../component/container/NewsCardContainer";
+import NewsCard from "../../component/molecules/NewsCard";
+import Pagination from "../../component/molecules/Pagination";
+import NavCategory from "../../component/molecules/NavCategory";
 
-export default function IndonesiaPage() {
+const d = new Date();
+const localDateTo = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+d.setMonth(d.getMonth() - 1);
+const localDateFrom = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+
+export default function CovidPage() {
   const dispatch = useDispatch();
-  const indonesiaNews = useSelector((state) => state.news.newsList);
+  const covidNews = useSelector((state) => state.news.newsList);
   const totalResult = useSelector((state) => state.news.totalResult);
   const [size, setSize] = useState(24);
   const [current, setCurrent] = useState(1);
@@ -20,21 +23,18 @@ export default function IndonesiaPage() {
   useEffect(() => {
     dispatch(
       fetchNews(
-        `${process.env.REACT_APP_API_URL}/top-headlines?country=id&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/everything?q=covid&from=${localDateFrom}&to=${localDateTo}&sortBy=publishedAt&pageSize=${size}&page=${current}&apiKey=${process.env.REACT_APP_API_KEY}`
       )
     );
   }, [current]);
 
-  console.log(" length =>", indonesiaNews.length);
-
   return (
     <>
-      <Navbar />
       <PageContainer>
-        <Header>Indonesia News</Header>
+        <Header>Covid News</Header>
         <NavCategory />
         <NewsCardContainer>
-          {indonesiaNews.map((item) => (
+          {covidNews.map((item) => (
             <NewsCard
               key={item.url}
               source={item.source.name}
@@ -52,11 +52,10 @@ export default function IndonesiaPage() {
           size={size}
           current={current}
           setCurrent={setCurrent}
-          news={indonesiaNews}
+          news={covidNews}
           totalResult={totalResult}
         />
       </PageContainer>
-      <Footer />
     </>
   );
 }

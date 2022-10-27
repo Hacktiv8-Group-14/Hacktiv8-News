@@ -1,12 +1,10 @@
-import Header from "../component/atoms/Header";
-import PageContainer from "../component/container/PageContainer";
-import NewsCardContainer from "../component/container/NewsCardContainer";
-import NewsCard from "../component/molecules/NewsCard";
-import Navbar from "../component/molecules/Navbar";
-import { resetErrorMessage } from "../features/NewsSlice";
+import Header from "../../component/atoms/Header";
+import PageContainer from "../../component/container/PageContainer";
+import NewsCardContainer from "../../component/container/NewsCardContainer";
+import NewsCard from "../../component/molecules/NewsCard";
+import { resetErrorMessage } from "../../features/NewsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Footer from "../component/molecules/Footer";
 
 export default function SavedPage() {
   const dispatch = useDispatch();
@@ -19,7 +17,6 @@ export default function SavedPage() {
 
   return (
     <>
-      <Navbar />
       <PageContainer>
         <Header>Saved</Header>
         {savedNews.length === 0 ? (
@@ -40,7 +37,6 @@ export default function SavedPage() {
           </NewsCardContainer>
         )}
       </PageContainer>
-      <Footer />
     </>
   );
 }

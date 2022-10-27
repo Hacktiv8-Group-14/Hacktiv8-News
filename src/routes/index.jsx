@@ -1,10 +1,10 @@
-import CovidPage from "../../../pages/CovidPage";
-import Error from "../../../pages/Error";
-import HomePage from "../../../pages/HomePage";
-import IndonesiaPage from "../../../pages/IndonesiaPage";
-import ProgrammingPage from "../../../pages/ProgrammingPage";
-import SavedPage from "../../../pages/SavedPage";
-import Search from "../../../pages/Search";
+import CovidPage from "../pages/CovidPage";
+import Error from "../pages/Error";
+import HomePage from "../pages/HomePage";
+import IndonesiaPage from "../pages/IndonesiaPage";
+import ProgrammingPage from "../pages/ProgammingPage";
+import SavedPage from "../pages/SavedPage";
+import Search from "../pages/Search";
 
 export const route = [
   {

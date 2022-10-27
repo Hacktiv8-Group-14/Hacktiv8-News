@@ -1,15 +1,13 @@
-import Navbar from "../component/molecules/Navbar";
-import PageContainer from "../component/container/PageContainer";
-import Header from "../component/atoms/Header";
-import NewsCard from "../component/molecules/NewsCard";
-import NewsCardContainer from "../component/container/NewsCardContainer";
+import PageContainer from "../../component/container/PageContainer";
+import Header from "../../component/atoms/Header";
+import NewsCard from "../../component/molecules/NewsCard";
+import NewsCardContainer from "../../component/container/NewsCardContainer";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchNews } from "../features/NewsSlice";
-import Pagination from "../component/molecules/Pagination";
-import Footer from "../component/molecules/Footer";
-import Error from "./Error";
+import { fetchNews } from "../../features/NewsSlice";
+import Pagination from "../../component/molecules/Pagination";
+import Error from "../Error";
 
 const date = new Date();
 
@@ -39,7 +37,6 @@ export default function Search() {
     <>
       {newsSearch.length ? (
         <>
-          <Navbar />
           <PageContainer>
             <Header>Hasil Pencarian "{value}"</Header>
             <NewsCardContainer>
@@ -65,7 +62,6 @@ export default function Search() {
               totalResult={totalResult}
             />
           </PageContainer>
-          <Footer />
         </>
       ) : (
         <Error title={` Hasil Pencarian "${value}" tidak ditemukan`} />

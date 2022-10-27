@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchNews } from "../features/NewsSlice";
-import Navbar from "../component/molecules/Navbar";
-import Header from "../component/atoms/Header";
-import PageContainer from "../component/container/PageContainer";
-import NewsCardContainer from "../component/container/NewsCardContainer";
-import NewsCard from "../component/molecules/NewsCard";
-import Pagination from "../component/molecules/Pagination";
-import NavCategory from "../component/molecules/NavCategory";
-import Footer from "../component/molecules/Footer";
+import { fetchNews } from "../../features/NewsSlice";
+import Header from "../../component/atoms/Header";
+import PageContainer from "../../component/container/PageContainer";
+import NewsCardContainer from "../../component/container/NewsCardContainer";
+import NewsCard from "../../component/molecules/NewsCard";
+import Pagination from "../../component/molecules/Pagination";
+import NavCategory from "../../component/molecules/NavCategory";
 
 const d = new Date();
 const localDateTo = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
@@ -32,7 +30,6 @@ const ProgrammingPage = () => {
 
   return (
     <>
-      <Navbar />
       <PageContainer>
         <Header>Programming News</Header>
         <NavCategory />
@@ -58,7 +55,6 @@ const ProgrammingPage = () => {
           totalResult={totalResult}
         />
       </PageContainer>
-      <Footer />
     </>
   );
 };
